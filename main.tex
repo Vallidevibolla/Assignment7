@@ -157,7 +157,7 @@ Z = x + y
 subject to
 \begin{align}
 x-y \leq -1 \\
--x+y \leq 0 \\
+x+y \leq 0 \\
 x \succeq 0
 y \succeq 0
 \end{align}
@@ -165,41 +165,42 @@ y \succeq 0
 \begin{align}
 Z-x-y=0\\
 x-y+s_1=-1\\
--x+y+s_2=0
+x+y+s_2=0
 \end{align}
 We will write the simplex tableau
 \begin{align}
 \myvec{
  x & y & s_1 & s_2 & c  \\ 
   1 & -1 & 1 & 0 & -1 \\ 
-  \hlight{-1} & 1 & 0 & 1 & 0  \\ \hline
+  \hlight{1} & 1 & 0 & 1 & 0  \\ \hline
   -1 & -1 & 0 & 0 & 0 
 }
 \end{align}
 Keeping the pivot element as $-1$, we will use gauss-jordan elimination.
+
 \begin{align}
 \myvec{
-  x & y & s_1 & s_2 & c  \\[0.1cm] 
-  0 & \hlight{-2}} & 1 & 0 & -1 \\
-  1 & -1 & 0 & -1 & 0  \\ \hline
-  0 & 2 & 0 & 1 & 0 
+  x & y & s_1 & s_2 & c  \\
+  1 & -1 & 1 & 0 & -1 \\
+  0 & 1 & \frac{-1}{2} & \frac{1}{2} & \frac{1}{2}  \\ \hline
+  0 & -2 & 1 & 0 & -1 
 }
 \end{align}
 Keeping the pivot element, we will use gauss-jordan elimination.
 \begin{align}
 \myvec{
   x & y & s_1 & s_2 & c  \\ 
-  0 & 1 & \frac{-1}{2} & 0 & \frac{1}{2} \\ 
-  1 & 0 & \frac{-1}{2} & -1 & \frac{1}{2}  \\ \hline 
-  0 & 0 & 1 & 1 & -1 \\
+  1 & 0 & \frac{1}{2} & 0 & \frac{-1}{2} \\ 
+  0 & 1 & \frac{-1}{2} & 0 & \frac{1}{2}  \\ \hline 
+  0 & 0 & 0 & 1 & 0 \\
 }
 \end{align}
 We have determined the optimal solution to be:
 \begin{align}
-(x,y,s_1,s_2)=\left(\frac{1}{2},\frac{1}{2},0,0\right)\\
+(x,y,s_1,s_2)=\left(\frac{-1}{2},\frac{1}{2},0,0\right)\\
 Z=x+y\\
-Z=\frac{1}{2}+\frac{1}{2}\\
-Z=1
+Z=\frac{-1}{2}+\frac{1}{2}\\
+Z=0
 \end{align}
 
 The given problem can be expressed in general as matrix inequality as:
@@ -234,7 +235,7 @@ where
 \myvec{
 1 & -1
 \\
--1 & 1
+1 & 1
 }
 \\
 \vec{b}&=\myvec{-1\\0}
@@ -244,7 +245,7 @@ where
 and can be solved using {\em cvxpy}. 
 Hence,
 \begin{align}
-\vec{x} = \myvec{0.5\\0.5}, Z = 1
+\vec{x} = \myvec{-0.5\\0.5}, Z = 0
 \end{align}
 
 
