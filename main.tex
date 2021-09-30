@@ -163,41 +163,33 @@ y \succeq 0
 \end{align}
 \section{Solution}
 \begin{align}
-Z-x-y=0\\
-x-y+s_1=-1\\
-x+y+s_2=0
+Z=x+y\\
+x-y=-1\\
+-x+y=0
 \end{align}
-We will write the simplex tableau
+We will write the matrix forms
 \begin{align}
-\myvec{
- x & y & s_1 & s_2 & c  \\ 
-  1 & -1 & 1 & 0 & -1 \\ 
-  \hlight{1} & 1 & 0 & 1 & 0  \\ \hline
-  -1 & -1 & 0 & 0 & 0 
-}
+\myvec{1 & -1 & -1 \\ 1 & 1 & 0}
 \end{align}
-Keeping the pivot element as $-1$, we will use gauss-jordan elimination.
+By using RREF method we will get 
 
 \begin{align}
-\myvec{
-  x & y & s_1 & s_2 & c  \\
-  1 & -1 & 1 & 0 & -1 \\
-  0 & 1 & \frac{-1}{2} & \frac{1}{2} & \frac{1}{2}  \\ \hline
-  0 & -2 & 1 & 0 & -1 
-}
+\myvec{1 & -1 & -1 \\ 1 & 1 & 0}
+\xleftrightarrow{R_2\rightarrow R_2-R_1}
+\myvec{1 & -1 & -1 \\ 0 & 2 & 1}\\
+\xleftrightarrow{R_2\rightarrow \frac{R_2}{2}}
+\myvec{1 & -1 & -1 \\ 0 & 1 & \frac{1}{2}}
+\xleftrightarrow{R_2\rightarrow R_2+R_1}
+\myvec{1 & 0 & \frac{-1}{2} \\ 0 & 1 & \frac{1}{2}}
 \end{align}
-Keeping the pivot element, we will use gauss-jordan elimination.
+
 \begin{align}
-\myvec{
-  x & y & s_1 & s_2 & c  \\ 
-  1 & 0 & \frac{1}{2} & 0 & \frac{-1}{2} \\ 
-  0 & 1 & \frac{-1}{2} & 0 & \frac{1}{2}  \\ \hline 
-  0 & 0 & 0 & 1 & 0 \\
-}
+\vec{x}= \frac{-1}{2}\\
+\vec{y}= \frac{1}{2}
 \end{align}
 We have determined the optimal solution to be:
 \begin{align}
-(x,y,s_1,s_2)=\left(\frac{-1}{2},\frac{1}{2},0,0\right)\\
+(x,y)=\left(\frac{-1}{2},\frac{1}{2}\right)\\
 Z=x+y\\
 Z=\frac{-1}{2}+\frac{1}{2}\\
 Z=0
