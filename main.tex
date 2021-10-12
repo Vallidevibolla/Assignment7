@@ -151,95 +151,61 @@ https://github.com/gadepall/ncert/blob/main/linalg/optimization/gvv_ncert_opt.pd
 %
 \section{Question 2.11}
 Maximise
-\begin{align}
+\begin{align}\label{eq:4}
 Z = x + y  
 \end{align}
 subject to
-\begin{align}
+\begin{align}\label{eq:1}
 x-y \leq -1 \\
-x+y \leq 0 \\
+x+y \leq 0 \label{eq:2}\\
 x \succeq 0
 y \succeq 0
 \end{align}
 \section{Solution}
-\begin{align}
-Z=x+y\\
-x-y=-1\\
--x+y=0
+Using \eqref{eq:1} and \eqref{eq:4} perform
+Langrangian multiplier method
+\begin{align}\label{eq:3}
+f\myvec{x}=\lambda g\myvec{x}  \\
+f\myvec{x}=1, g\myvec{x}=1\\
+f\myvec{y}=1, g\myvec{y}=-1
 \end{align}
-We will write the matrix forms
+Substituting the values in \eqref{eq:3}, we get
 \begin{align}
-\myvec{1 & -1 & -1 \\ 1 & 1 & 0}
+\vec{x}=\lambda   \\ 
+\vec{y}=-\lambda  
 \end{align}
-By using RREF method we will get 
+Using the constraint \eqref{eq:1}
+\begin{align}
+\frac{x}{y}=\frac{\lambda}{-\lambda}\\
+\implies\vec{x}=-y
+\end{align}
+By substituting x value in \eqref{eq:1}, we get y value
+\begin{align}
+\vec{y}=\frac{1}{2}
+\end{align}
+Then the value of \lambda is given as
 
 \begin{align}
-\myvec{1 & -1 & -1 \\ 1 & 1 & 0}
-\xleftrightarrow{R_2\rightarrow R_2-R_1}
-\myvec{1 & -1 & -1 \\ 0 & 2 & 1}\\
-\xleftrightarrow{R_2\rightarrow \frac{R_2}{2}}
-\myvec{1 & -1 & -1 \\ 0 & 1 & \frac{1}{2}}
-\xleftrightarrow{R_2\rightarrow R_2+R_1}
-\myvec{1 & 0 & \frac{-1}{2} \\ 0 & 1 & \frac{1}{2}}
+\lambda =\vec{x}
+\implies\lambda =\frac{-1}{2}
 \end{align}
 
-\begin{align}
-\vec{x}= \frac{-1}{2}\\
-\vec{y}= \frac{1}{2}
+Similarly using \eqref{eq:4} and \eqref{eq:2}
+\begin{align}\label{eq:3}
+f\myvec{x}=\lambda g\myvec{x}  \\
+f\myvec{x}=1, g\myvec{x}=-1\\
+f\myvec{y}=1, g\myvec{y}=1
 \end{align}
-We have determined the optimal solution to be:
+Substituting the values in \eqref{eq:3}, we get
 \begin{align}
-(x,y)=\left(\frac{-1}{2},\frac{1}{2}\right)\\
-Z=x+y\\
-Z=\frac{-1}{2}+\frac{1}{2}\\
-Z=0
+\vec{x}=-\lambda   \\ 
+\vec{y}=\lambda  
 \end{align}
-
-The given problem can be expressed in general as matrix inequality as:
-%\begin{align}
-%\max_{\vec{x}} Z &= \myvec{1 & 1}\vec{x}
-%\\
-%s.t. \quad 
-%\myvec{
-%1 & -1
-%\\
-%-1 & 1
-%}
-%\vec{x} &\preceq \myvec{-1\\0}
-%\\
-%\vec{x} &\succeq \vec{0}\\
-%\vec{y} &\succeq \vec{0}
-%\end{align}
+Finally we get Z=0 with
 \begin{align}
-\max_{\vec{x}} &\vec{c}^{T}\vec{x}
-\\
-s.t. \quad \vec{A}\vec{x} &\le \vec{b},
-\\
-\vec{x} &\succeq\vec{0}\\
-\vec{y} &\succeq \vec{0}
+\vec{x}=\frac{-1}{2}\\
+\vec{y}=\frac{1}{2}
 \end{align}
-%
-where
-\begin{align}
-\vec{c} &= \myvec{-1 \\ -1}
-\\
-\vec{A} &=
-\myvec{
-1 & -1
-\\
-1 & 1
-}
-\\
-\vec{b}&=\myvec{-1\\0}
-%
-\end{align}
-%
-and can be solved using {\em cvxpy}. 
-Hence,
-\begin{align}
-\vec{x} = \myvec{-0.5\\0.5}, Z = 0
-\end{align}
-
 
 \begin{figure}[ht]
     \centering
