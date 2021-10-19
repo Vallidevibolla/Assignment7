@@ -162,59 +162,37 @@ x \succeq 0
 y \succeq 0
 \end{align}
 \section{Solution}
-Using \eqref{eq:1} and \eqref{eq:4} perform
-Langrangian multiplier method
-\begin{align}\label{eq:3}
-f\brak{x}=\lambda g\brak{x}  \\
-f\brak{x}=1, g\brak{x}=1\\
-f\brak{y}=1, g\brak{y}=-1
-\end{align}
-Substituting the values in \eqref{eq:3}, we get
-\begin{align}
-\vec{x}=\lambda   \\ 
-\vec{y}=-\lambda  
-\end{align}
-Using the constraint \eqref{eq:1}
-\begin{align}
-\frac{x}{y}=\frac{\lambda}{-\lambda}\\
-\implies\vec{x}=-y
-\end{align}
-By substituting x value in \eqref{eq:1}, we get y value
-\begin{align}
-\vec{y}=\frac{1}{2}
-\end{align}
-Then the value of \lambda is given as
 
-\begin{align}
-\lambda =\vec{x}
-\implies\lambda =\frac{-1}{2}
-\end{align}
+This can be solved in python which generates the result as shown in plot 
 
-Similarly using \eqref{eq:4} and \eqref{eq:2}
-\begin{align}\label{eq:3}
-f\brak{x}=\lambda g\brak{x}  \\
-f\brak{x}=1, g\brak{x}=-1\\
-f\brak{y}=1, g\brak{y}=1
-\end{align}
-Substituting the values in \eqref{eq:3}, we get
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\columnwidth]{download.png}
+\caption{Plot from python code }
+\label{Plot}
+\end{figure}
+
+
+The given problem can be expressed in general
+as matrix inequality as:
 \begin{align}
-\vec{x}=-\lambda   \\ 
-\vec{y}=\lambda  
+    \max_{\{x\}}\vec{c}^T\Vec{x}\\
+    s.t \quad \Vec{A}\vec{x}\leq \vec{b} \\
+    \Vec{x} \geq 0\\
+    \Vec{y} \geq 0
 \end{align}
-Finally we get Z=0 with
+where,
 \begin{align}
-\vec{x}=\frac{-1}{2}\\
-\vec{y}=\frac{1}{2}
+    \Vec{c}=\myvec{1\\1}\\
+    \Vec{A}=\myvec{1 & -1\\-1 & 1}\\
+    \Vec{b}=\myvec{-1\\0}
 \end{align}
+Solving for Z by this reduction method we get
 \begin{align}
     Max Z = None
 \end{align}
 There is no optimal maximum solution for this.
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=\columnwidth]{download.png}
-    \caption{Graphical solution}
-    \label{Graphical solution}
-\end{figure}
+
 
 \end{document}
